@@ -1,0 +1,5 @@
+name: MultiMassive
+main: com.ps2j.MultiMassive.MultiMassiveMain
+version: 0.1
+load: POSTWORLD
+author: Shadow0X90
