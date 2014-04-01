@@ -24,6 +24,7 @@ item.setItemMeta(meta);
 inv.setItem(Slot, item);
  
 }
+//No more editing till class system is functional.
 static {
 JobPickGui.createDisplay(Material.ENDER_PEARL, jobSelect, 8, ChatColor.DARK_GRAY + "Dark Knight", ChatColor.DARK_GRAY + "A heavy offensive job that uses health to attack.", ChatColor.GOLD + "Wields Axes and Swords.");
 JobPickGui.createDisplay(Material.IRON_SWORD, jobSelect, 0, ChatColor.YELLOW + "Warrior", ChatColor.YELLOW + "A heavy offensive job with a low defence.", ChatColor.GOLD + "Wields Axes and Swords.");
