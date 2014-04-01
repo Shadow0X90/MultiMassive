@@ -15,6 +15,7 @@ public class MultiMassiveMain extends JavaPlugin{
 
 File configFile;
 FileConfiguration config;
+MySQL mysql = new MySQL(plugin, MultiMassive.this.getConfig().getString("Hostname"),MultiMassive.this.getConfig().getInt("Port"), MultiMassive.this.getConfig().getString("Database"), MultiMassive.this.getConfig().getString("User"), MultiMassive.this.getConfig().getString("Pass"));
 
 
 public void onEnable(){
