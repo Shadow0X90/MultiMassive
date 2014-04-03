@@ -17,8 +17,6 @@ public class MultiMassiveMain extends JavaPlugin{
 
 File configFile;
 FileConfiguration config;
-MySQL mysql = new MySQL(plugin, MultiMassive.this.getConfig().getString("Hostname"),MultiMassive.this.getConfig().getInt("Port"), MultiMassive.this.getConfig().getString("Database"), MultiMassive.this.getConfig().getString("User"), MultiMassive.this.getConfig().getString("Pass"));
-Connection c = null; 
 
 public void onEnable(){
 	configFile = new File(getDataFolder(), "config.yml");
@@ -31,7 +29,6 @@ try {
 	config = new YamlConfiguration();
 	loadYamls();
 }
-c = MySQL.openConnection();
 private void firstRun() throws Exception {
 	if(!configFile.exists()) {
 		configFile.getParentFile().mkdirs();
