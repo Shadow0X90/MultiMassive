@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.Statement;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -16,7 +18,7 @@ public class MultiMassiveMain extends JavaPlugin{
 File configFile;
 FileConfiguration config;
 MySQL mysql = new MySQL(plugin, MultiMassive.this.getConfig().getString("Hostname"),MultiMassive.this.getConfig().getInt("Port"), MultiMassive.this.getConfig().getString("Database"), MultiMassive.this.getConfig().getString("User"), MultiMassive.this.getConfig().getString("Pass"));
-
+Connection c = null; 
 
 public void onEnable(){
 	configFile = new File(getDataFolder(), "config.yml");
@@ -29,6 +31,7 @@ try {
 	config = new YamlConfiguration();
 	loadYamls();
 }
+c = MySQL.openConnection();
 private void firstRun() throws Exception {
 	if(!configFile.exists()) {
 		configFile.getParentFile().mkdirs();
