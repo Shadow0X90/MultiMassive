@@ -12,14 +12,18 @@ import java.sql.Connection;
 import java.sql.Statement;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class MultiMassiveMain extends JavaPlugin{
-
+public static Properties prop = new Properties();
 File configFile;
 FileConfiguration config;
 public void onEnable(){
 	configFile = new File(getDataFolder(), "config.yml");
 	getServer().getPluginManager().registerEvents(new JobPickListener(), this);
+	loadprop();
 try {
 	firstRun();
 } catch (Exception e) {
@@ -27,6 +31,16 @@ try {
 }
 	config = new YamlConfiguration();
 	loadYamls();
+}
+public void loadprop(){
+	try{
+		prop.load(new FileInputStream("PlayerInfo.properties"));
+	}catch(FileNotFroundException e){
+		System.out.println("PlayerInfo does not exist!");
+	}catch(Exception e1) {
+		e1.printStackTrace();
+	}
+	}
 }
 private void firstRun() throws Exception {
 	if(!configFile.exists()) {
