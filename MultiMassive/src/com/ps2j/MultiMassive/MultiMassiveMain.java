@@ -17,10 +17,6 @@ public class MultiMassiveMain extends JavaPlugin{
 
 File configFile;
 FileConfiguration config;
-String user = MultiMassive.this.getConfig().getString("User");
-String pass = MultiMassive.this.getConfig().getString("Pass");
-String url = "jdbc:mysql://" + MultiMassive.this.getConfig().getString("ip") + ":" + MultiMassive.this.getConfig().getString("Port") + "/" + MultiMassive.this.getConfig().getString("Database")
-
 public void onEnable(){
 	configFile = new File(getDataFolder(), "config.yml");
 	getServer().getPluginManager().registerEvents(new JobPickListener(), this);
